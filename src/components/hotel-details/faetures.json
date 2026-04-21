@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_hotel_details_faetures",
+  "info": {
+    "displayName": "faetures"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leads",
+  "info": {
+    "singularName": "lead",
+    "pluralName": "leads",
+    "displayName": "lead"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "clientName": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "requestDetails": {
+      "type": "json"
+    },
+    "email": {
+      "type": "email"
+    }
+  }
+}

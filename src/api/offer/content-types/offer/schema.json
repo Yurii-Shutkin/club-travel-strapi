@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offers",
+  "info": {
+    "singularName": "offer",
+    "pluralName": "offers",
+    "displayName": "offer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "price": {
+      "type": "decimal"
+    },
+    "date": {
+      "type": "date"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "mealType": {
+      "type": "enumeration",
+      "enum": [
+        "RO",
+        "BB",
+        "HB",
+        "FB",
+        "AI",
+        "UAI"
+      ]
+    },
+    "departureCity": {
+      "type": "string"
+    },
+    "hotel": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::hotel.hotel",
+      "inversedBy": "offers"
+    }
+  }
+}
