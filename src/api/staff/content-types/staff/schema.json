@@ -16,12 +16,6 @@
     },
     "contacts": {
       "type": "string"
-    },
-    "hotel": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::hotel.hotel",
-      "inversedBy": "managers"
     }
   }
 }

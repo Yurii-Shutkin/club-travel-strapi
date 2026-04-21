@@ -551,7 +551,6 @@ export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::hotel.hotel'> &
       Schema.Attribute.Private;
     main: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    managers: Schema.Attribute.Relation<'oneToMany', 'api::staff.staff'>;
     name: Schema.Attribute.String;
     offers: Schema.Attribute.Relation<'oneToMany', 'api::offer.offer'>;
     publishedAt: Schema.Attribute.DateTime;
@@ -673,7 +672,6 @@ export interface ApiStaffStaff extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    hotel: Schema.Attribute.Relation<'manyToOne', 'api::hotel.hotel'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::staff.staff'> &
       Schema.Attribute.Private;

@@ -26,12 +26,6 @@
       "target": "api::region.region",
       "inversedBy": "hotels"
     },
-    "managers": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::staff.staff",
-      "mappedBy": "hotel"
-    },
     "features": {
       "type": "component",
       "component": "hotel-details.faetures",
