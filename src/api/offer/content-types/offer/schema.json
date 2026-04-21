@@ -39,6 +39,12 @@
       "relation": "manyToOne",
       "target": "api::hotel.hotel",
       "inversedBy": "offers"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "offers"
     }
   }
 }

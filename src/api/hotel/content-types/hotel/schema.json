@@ -42,6 +42,26 @@
       "relation": "oneToMany",
       "target": "api::offer.offer",
       "mappedBy": "hotel"
+    },
+    "main": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
