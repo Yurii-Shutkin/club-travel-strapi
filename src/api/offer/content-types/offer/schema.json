@@ -45,6 +45,12 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "mappedBy": "offers"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::country.country",
+      "inversedBy": "offers"
     }
   }
 }

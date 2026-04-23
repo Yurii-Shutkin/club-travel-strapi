@@ -33,6 +33,21 @@
         "videos",
         "audios"
       ]
+    },
+    "hotels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::hotel.hotel",
+      "mappedBy": "country"
+    },
+    "title": {
+      "type": "string"
+    },
+    "offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::offer.offer",
+      "mappedBy": "country"
     }
   }
 }

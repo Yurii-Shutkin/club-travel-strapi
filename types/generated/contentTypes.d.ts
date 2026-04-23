@@ -512,6 +512,7 @@ export interface ApiCountryCountry extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    hotels: Schema.Attribute.Relation<'oneToMany', 'api::hotel.hotel'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -519,9 +520,11 @@ export interface ApiCountryCountry extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
+    offers: Schema.Attribute.Relation<'oneToMany', 'api::offer.offer'>;
     publishedAt: Schema.Attribute.DateTime;
     regions: Schema.Attribute.Relation<'oneToMany', 'api::region.region'>;
     slug: Schema.Attribute.UID<'name'>;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -539,6 +542,7 @@ export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    country: Schema.Attribute.Relation<'manyToOne', 'api::country.country'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -606,6 +610,7 @@ export interface ApiOfferOffer extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::category.category'
     >;
+    country: Schema.Attribute.Relation<'manyToOne', 'api::country.country'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -648,32 +653,6 @@ export interface ApiRegionRegion extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::region.region'
     > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiStaffStaff extends Struct.CollectionTypeSchema {
-  collectionName: 'staff_member';
-  info: {
-    displayName: 'staff';
-    pluralName: 'staff-member';
-    singularName: 'staff';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    contacts: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::staff.staff'> &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -1201,7 +1180,6 @@ declare module '@strapi/strapi' {
       'api::lead.lead': ApiLeadLead;
       'api::offer.offer': ApiOfferOffer;
       'api::region.region': ApiRegionRegion;
-      'api::staff.staff': ApiStaffStaff;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
