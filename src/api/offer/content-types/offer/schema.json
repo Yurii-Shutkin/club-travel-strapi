@@ -51,6 +51,12 @@
       "relation": "manyToOne",
       "target": "api::country.country",
       "inversedBy": "offers"
+    },
+    "oldPrice": {
+      "type": "integer"
+    },
+    "discount": {
+      "type": "integer"
     }
   }
 }

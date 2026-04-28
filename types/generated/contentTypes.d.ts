@@ -481,7 +481,6 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    discount: Schema.Attribute.Integer;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -617,6 +616,7 @@ export interface ApiOfferOffer extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     date: Schema.Attribute.Date;
     departureCity: Schema.Attribute.String;
+    discount: Schema.Attribute.Integer;
     duration: Schema.Attribute.Integer;
     hotel: Schema.Attribute.Relation<'manyToOne', 'api::hotel.hotel'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -625,6 +625,7 @@ export interface ApiOfferOffer extends Struct.CollectionTypeSchema {
     mealType: Schema.Attribute.Enumeration<
       ['RO', 'BB', 'HB', 'FB', 'AI', 'UAI']
     >;
+    oldPrice: Schema.Attribute.Integer;
     price: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;

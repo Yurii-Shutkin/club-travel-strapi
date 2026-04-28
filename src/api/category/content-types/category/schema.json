@@ -23,9 +23,6 @@
       "relation": "manyToMany",
       "target": "api::offer.offer",
       "inversedBy": "categories"
-    },
-    "discount": {
-      "type": "integer"
     }
   }
 }
