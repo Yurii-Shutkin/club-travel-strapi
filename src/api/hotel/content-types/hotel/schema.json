@@ -56,12 +56,6 @@
         "videos",
         "audios"
       ]
-    },
-    "country": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::country.country",
-      "inversedBy": "hotels"
     }
   }
 }

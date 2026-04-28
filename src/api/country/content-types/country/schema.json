@@ -34,12 +34,6 @@
         "audios"
       ]
     },
-    "hotels": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::hotel.hotel",
-      "mappedBy": "country"
-    },
     "title": {
       "type": "string"
     }
