@@ -520,7 +520,6 @@ export interface ApiCountryCountry extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
-    offers: Schema.Attribute.Relation<'oneToMany', 'api::offer.offer'>;
     publishedAt: Schema.Attribute.DateTime;
     regions: Schema.Attribute.Relation<'oneToMany', 'api::region.region'>;
     slug: Schema.Attribute.UID<'name'>;
@@ -610,7 +609,6 @@ export interface ApiOfferOffer extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::category.category'
     >;
-    country: Schema.Attribute.Relation<'manyToOne', 'api::country.country'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
