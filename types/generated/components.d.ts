@@ -6,8 +6,8 @@ export interface HotelDetailsFaetures extends Struct.ComponentSchema {
     displayName: 'faetures';
   };
   attributes: {
-    label: Schema.Attribute.String;
-    value: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    values: Schema.Attribute.Blocks;
   };
 }
 

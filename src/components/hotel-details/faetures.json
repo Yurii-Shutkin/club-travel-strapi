@@ -5,11 +5,11 @@
   },
   "options": {},
   "attributes": {
-    "label": {
+    "title": {
       "type": "string"
     },
-    "value": {
-      "type": "string"
+    "values": {
+      "type": "blocks"
     }
   },
   "config": {}

@@ -519,6 +519,7 @@ export interface ApiCountryCountry extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
+    price: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     regions: Schema.Attribute.Relation<'oneToMany', 'api::region.region'>;
     slug: Schema.Attribute.UID<'name'>;
