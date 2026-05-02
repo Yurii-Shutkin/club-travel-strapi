@@ -13,6 +13,9 @@ module.exports = [
           upgradeInsecureRequests: null,
         },
       },
+      session: {
+        secure: false, 
+      },
     },
   },
   'strapi::cors',
