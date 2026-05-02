@@ -22,7 +22,15 @@ module.exports = [
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
-  'strapi::session',
   'strapi::favicon',
   'strapi::public',
+  {
+    name: 'strapi::session',
+    config: {
+      session: {
+        secure: false, 
+        sameSite: 'lax',
+      },
+    },
+  },
 ];
