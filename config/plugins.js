@@ -13,4 +13,18 @@ module.exports = ({ env }) => ({
       },
     },
   },
+  'users-permissions': {
+    config: {
+      providers: {
+        google: {
+          enabled: true,
+          icon: 'google',
+          subdomain: '', 
+          clientId: env('GOOGLE_CLIENT_ID'), 
+          clientSecret: env('GOOGLE_CLIENT_SECRET'), 
+          callback: `${env('STRAPI_URL')}/api/auth/google/callback`,
+        },
+      },
+    },
+  },
 });
