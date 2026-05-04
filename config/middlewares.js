@@ -25,7 +25,7 @@ module.exports = [
     name: 'strapi::session',
     config: {
       cookie: {
-        secure: true, 
+        secure: false, 
         sameSite: 'lax',
         httpOnly: true,
       },
