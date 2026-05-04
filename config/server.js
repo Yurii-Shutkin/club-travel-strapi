@@ -5,9 +5,9 @@ module.exports = ({ env }) => ({
   proxy: true,
   app: {
     keys: env.array('APP_KEYS'),
-    settings: {
-      proxy: true,
-    },
+  },
+  register({ strapi }) {
+    strapi.server.app.proxy = true;
   },
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
