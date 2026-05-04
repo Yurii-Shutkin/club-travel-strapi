@@ -1,12 +1,17 @@
 module.exports = [
- (ctx, next) => {
-    if (ctx.request.header['x-forwarded-proto'] === 'https') {
-      ctx.request.secure = true;
-    }
-    return next();
-  },
   'strapi::logger',
   'strapi::errors',
+  {
+    name: 'global::force-https',
+    resolve: (config, { strapi }) => {
+      return async (ctx, next) => {
+        if (ctx.request.header['x-forwarded-proto'] === 'https') {
+          ctx.request.secure = true;
+        }
+        await next();
+      };
+    },
+  },
   {
     name: 'strapi::security',
     config: {
