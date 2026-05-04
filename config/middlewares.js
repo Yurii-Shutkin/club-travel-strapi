@@ -14,7 +14,7 @@ module.exports = [
         },
       },
       session: {
-        secure: false, 
+        secure: true, 
       },
     },
   },
@@ -28,8 +28,13 @@ module.exports = [
     name: 'strapi::session',
     config: {
       session: {
-        secure: false, 
+        secure: true, 
         sameSite: 'lax',
+      },
+      cookie: {
+        secure: true, 
+        sameSite: 'lax',
+        httpOnly: true,
       },
     },
   },
