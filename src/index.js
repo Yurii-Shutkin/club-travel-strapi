@@ -1,9 +1,11 @@
 'use strict';
 
 module.exports = {
-  register(/*{ strapi }*/) {},
+  register({ strapi }) {
+    strapi.server.app.proxy = true;
+  },
 
-  async bootstrap({ strapi }) {
+  async bootstrap({ /*{ strapi }*/ }) {
     //     const countries = [
     //   { name: 'Болгария', slug: 'bulgaria' },
     //   { name: 'Греция', slug: 'greece' },
