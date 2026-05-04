@@ -13,9 +13,6 @@ module.exports = [
           upgradeInsecureRequests: null,
         },
       },
-      session: {
-        secure: true, 
-      },
     },
   },
   'strapi::cors',
@@ -27,10 +24,6 @@ module.exports = [
   {
     name: 'strapi::session',
     config: {
-      session: {
-        secure: true, 
-        sameSite: 'lax',
-      },
       cookie: {
         secure: true, 
         sameSite: 'lax',
