@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_descriptions",
+  "info": {
+    "displayName": "descriptions"
+  },
+  "options": {},
+  "attributes": {
+    "mainDescription": {
+      "type": "blocks"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

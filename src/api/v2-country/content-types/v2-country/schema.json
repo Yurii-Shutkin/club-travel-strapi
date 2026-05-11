@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "v2_countries",
+  "info": {
+    "singularName": "v2-country",
+    "pluralName": "v2-countries",
+    "displayName": "v2_country"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "text"
+    },
+    "regions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::v2-region.v2-region",
+      "mappedBy": "country"
+    },
+    "hotels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::v2-hotel.v2-hotel",
+      "mappedBy": "country"
+    }
+  }
+}

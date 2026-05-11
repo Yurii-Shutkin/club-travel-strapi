@@ -1,0 +1,109 @@
+{
+  "kind": "collectionType",
+  "collectionName": "v2_hotels",
+  "info": {
+    "singularName": "v2-hotel",
+    "pluralName": "v2-hotels",
+    "displayName": "v2_hotel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hotelName": {
+      "type": "string"
+    },
+    "stars": {
+      "type": "integer"
+    },
+    "departureCity": {
+      "type": "string"
+    },
+    "dateOfDeparture": {
+      "type": "date"
+    },
+    "season": {
+      "type": "enumeration",
+      "enum": [
+        "winter",
+        "summer"
+      ]
+    },
+    "isHot": {
+      "type": "boolean",
+      "default": false
+    },
+    "typeOfMeal": {
+      "type": "enumeration",
+      "enum": [
+        "Без питания",
+        "Завтрак",
+        "Затрак и ужин",
+        "Завтрак, обед, ужин",
+        "Всё включено",
+        "Ультра: всё включено"
+      ]
+    },
+    "priceForPerson": {
+      "type": "integer"
+    },
+    "tourLineup": {
+      "type": "enumeration",
+      "enum": [
+        "Туристический пакет",
+        "Только перелет"
+      ]
+    },
+    "daysDuration": {
+      "type": "integer"
+    },
+    "class": {
+      "type": "enumeration",
+      "enum": [
+        "Standart",
+        "Superior",
+        "Deluxe",
+        "Suite",
+        "Junior Suite",
+        "Family Room"
+      ]
+    },
+    "hotelDescription": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.descriptions"
+      ]
+    },
+    "hotelFeatures": {
+      "type": "component",
+      "component": "hotel-info.feature-block",
+      "repeatable": true
+    },
+    "discount": {
+      "type": "integer",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isHot"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "region": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::v2-region.v2-region",
+      "inversedBy": "hotels"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::v2-country.v2-country",
+      "inversedBy": "hotels"
+    }
+  }
+}

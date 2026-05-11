@@ -661,6 +661,137 @@ export interface ApiRegionRegion extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiV2CountryV2Country extends Struct.CollectionTypeSchema {
+  collectionName: 'v2_countries';
+  info: {
+    displayName: 'v2_country';
+    pluralName: 'v2-countries';
+    singularName: 'v2-country';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cover: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hotels: Schema.Attribute.Relation<'oneToMany', 'api::v2-hotel.v2-hotel'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::v2-country.v2-country'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    regions: Schema.Attribute.Relation<'oneToMany', 'api::v2-region.v2-region'>;
+    slug: Schema.Attribute.UID;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiV2HotelV2Hotel extends Struct.CollectionTypeSchema {
+  collectionName: 'v2_hotels';
+  info: {
+    displayName: 'v2_hotel';
+    pluralName: 'v2-hotels';
+    singularName: 'v2-hotel';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    class: Schema.Attribute.Enumeration<
+      ['Standart', 'Superior', 'Deluxe', 'Suite', 'Junior Suite', 'Family Room']
+    >;
+    country: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::v2-country.v2-country'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dateOfDeparture: Schema.Attribute.Date;
+    daysDuration: Schema.Attribute.Integer;
+    departureCity: Schema.Attribute.String;
+    discount: Schema.Attribute.Integer;
+    hotelDescription: Schema.Attribute.DynamicZone<['sections.descriptions']>;
+    hotelFeatures: Schema.Attribute.Component<'hotel-info.feature-block', true>;
+    hotelName: Schema.Attribute.String;
+    isHot: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::v2-hotel.v2-hotel'
+    > &
+      Schema.Attribute.Private;
+    priceForPerson: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    region: Schema.Attribute.Relation<'manyToOne', 'api::v2-region.v2-region'>;
+    season: Schema.Attribute.Enumeration<['winter', 'summer']>;
+    stars: Schema.Attribute.Integer;
+    tourLineup: Schema.Attribute.Enumeration<
+      [
+        '\u0422\u0443\u0440\u0438\u0441\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043F\u0430\u043A\u0435\u0442',
+        '\u0422\u043E\u043B\u044C\u043A\u043E \u043F\u0435\u0440\u0435\u043B\u0435\u0442',
+      ]
+    >;
+    typeOfMeal: Schema.Attribute.Enumeration<
+      [
+        '\u0411\u0435\u0437 \u043F\u0438\u0442\u0430\u043D\u0438\u044F',
+        '\u0417\u0430\u0432\u0442\u0440\u0430\u043A',
+        '\u0417\u0430\u0442\u0440\u0430\u043A \u0438 \u0443\u0436\u0438\u043D',
+        '\u0417\u0430\u0432\u0442\u0440\u0430\u043A, \u043E\u0431\u0435\u0434, \u0443\u0436\u0438\u043D',
+        '\u0412\u0441\u0451 \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u043E',
+        '\u0423\u043B\u044C\u0442\u0440\u0430: \u0432\u0441\u0451 \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u043E',
+      ]
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiV2RegionV2Region extends Struct.CollectionTypeSchema {
+  collectionName: 'v2_regions';
+  info: {
+    displayName: 'v2_region';
+    pluralName: 'v2-regions';
+    singularName: 'v2-region';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    country: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::v2-country.v2-country'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hotels: Schema.Attribute.Relation<'oneToMany', 'api::v2-hotel.v2-hotel'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::v2-region.v2-region'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1179,6 +1310,9 @@ declare module '@strapi/strapi' {
       'api::lead.lead': ApiLeadLead;
       'api::offer.offer': ApiOfferOffer;
       'api::region.region': ApiRegionRegion;
+      'api::v2-country.v2-country': ApiV2CountryV2Country;
+      'api::v2-hotel.v2-hotel': ApiV2HotelV2Hotel;
+      'api::v2-region.v2-region': ApiV2RegionV2Region;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

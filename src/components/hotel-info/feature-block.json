@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_hotel_info_feature_blocks",
+  "info": {
+    "displayName": "FeatureBlock"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "entries": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}
