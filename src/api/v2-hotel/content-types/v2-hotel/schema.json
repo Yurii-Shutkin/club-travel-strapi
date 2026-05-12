@@ -48,6 +48,19 @@
     "priceForPerson": {
       "type": "integer"
     },
+    "oldPrice": {
+      "type": "integer",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isHot"
+            },
+            true
+          ]
+        }
+      }
+    },
     "tourLineup": {
       "type": "enumeration",
       "enum": [

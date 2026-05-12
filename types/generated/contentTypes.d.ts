@@ -732,6 +732,7 @@ export interface ApiV2HotelV2Hotel extends Struct.CollectionTypeSchema {
       'api::v2-hotel.v2-hotel'
     > &
       Schema.Attribute.Private;
+    oldPrice: Schema.Attribute.Integer;
     priceForPerson: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     region: Schema.Attribute.Relation<'manyToOne', 'api::v2-region.v2-region'>;
