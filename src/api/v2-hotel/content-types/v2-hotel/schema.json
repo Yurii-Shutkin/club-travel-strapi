@@ -117,6 +117,16 @@
       "relation": "manyToOne",
       "target": "api::v2-country.v2-country",
       "inversedBy": "hotels"
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

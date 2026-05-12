@@ -722,6 +722,10 @@ export interface ApiV2HotelV2Hotel extends Struct.CollectionTypeSchema {
     daysDuration: Schema.Attribute.Integer;
     departureCity: Schema.Attribute.String;
     discount: Schema.Attribute.Integer;
+    gallery: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     hotelDescription: Schema.Attribute.DynamicZone<['sections.descriptions']>;
     hotelFeatures: Schema.Attribute.Component<'hotel-info.feature-block', true>;
     hotelName: Schema.Attribute.String;
