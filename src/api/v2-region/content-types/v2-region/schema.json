@@ -25,6 +25,16 @@
       "relation": "oneToMany",
       "target": "api::v2-hotel.v2-hotel",
       "mappedBy": "region"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

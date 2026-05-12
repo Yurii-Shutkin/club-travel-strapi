@@ -775,6 +775,7 @@ export interface ApiV2RegionV2Region extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::v2-country.v2-country'
     >;
+    cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
