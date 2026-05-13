@@ -19,7 +19,7 @@
       "maxLength": 15,
       "required": true
     },
-    "emai": {
+    "email": {
       "type": "email",
       "required": true,
       "maxLength": 50
